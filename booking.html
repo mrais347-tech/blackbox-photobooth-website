@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Check your date and request a Black Box Photobooth booking." />
+    <title>Booking | Black Box Photobooth</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="inner-page page-booking">
+    <header class="site-header">
+      <a class="brand" href="./index.html" aria-label="Black Box Photobooth home">
+        <img src="./assets/blackbox-logo.webp" alt="Black Box Photobooth" width="546" height="558" />
+      </a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="./packages.html">Packages</a>
+        <a href="./gallery.html">Gallery</a>
+        <a href="./backdrops.html">Backdrops</a>
+        <a href="./about.html">About</a>
+      </nav>
+      <a class="nav-cta" href="./booking.html">Book photo booth</a>
+      <details class="mobile-menu">
+        <summary aria-label="Open navigation"><span></span><span></span><span></span></summary>
+        <nav class="mobile-menu-panel" aria-label="Mobile navigation">
+            <a href="./packages.html">Packages</a>
+            <a href="./gallery.html">Gallery</a>
+            <a href="./backdrops.html">Backdrops</a>
+            <a href="./about.html">About</a>
+            <a href="./booking.html" aria-current="page">Book now</a>
+        </nav>
+      </details>
+    </header>
+    <main>
+      <section class="page-masthead">
+        <div class="page-masthead-media" aria-hidden="true"><img src="./assets/hero-event.webp" alt="" width="1792" height="896" /></div>
+        <div class="page-masthead-copy">
+          <p class="hero-kicker">Check your date</p>
+          <h1>Let?s put good times on the calendar.</h1>
+          <p>Share the essentials below. We will follow up with availability and the best package for your celebration.</p>
+        </div>
+      </section>
+      <section class="content-band booking-layout">
+        <div class="booking-intro"><p class="micro">Booking request</p><h2>Tell us about the event.</h2><p>No payment is taken here. This request simply helps us confirm the right booth, timing and backdrop.</p><div class="booking-contact"><span>Prefer email?</span><a href="mailto:hello@blkboxbooth.com">hello@blkboxbooth.com</a></div></div>
+        <form class="booking-form" action="mailto:hello@blkboxbooth.com" method="post" enctype="text/plain">
+          <label>Full name<input type="text" name="name" autocomplete="name" required /></label>
+          <label>Email address<input type="email" name="email" autocomplete="email" required /></label>
+          <div class="form-row"><label>Event date<input type="date" name="date" required /></label><label>Guest count<input type="number" name="guests" min="1" inputmode="numeric" /></label></div>
+          <label>Event type<select name="event_type"><option>Wedding</option><option>Birthday or private party</option><option>Corporate event</option><option>Brand activation</option><option>Other</option></select></label>
+          <label>Package interest<select name="package"><option>Help me choose</option><option>Essential</option><option>Signature</option><option>Black Box+</option></select></label>
+          <label>Venue and notes<textarea name="details" rows="5" placeholder="Venue, city, timing or anything we should know"></textarea></label>
+          <button class="button primary" type="submit">Send booking request</button>
+        </form>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <a class="footer-brand" href="./index.html">Black Box <span>Photobooth</span></a>
+      <nav aria-label="Footer navigation">
+        <a href="./packages.html">Packages</a>
+        <a href="./gallery.html">Gallery</a>
+        <a href="./backdrops.html">Backdrops</a>
+        <a href="./about.html">About</a>
+        <a href="./booking.html">Booking</a>
+      </nav>
+      <p>Modern photo booth experiences for celebrations worth remembering.</p>
+    </footer>
+  </body>
+</html>
