@@ -1,0 +1,17 @@
+{
+  "functions": {
+    "server.js": {
+      "includeFiles": [
+        "*.html",
+        "styles.css",
+        "assets/**"
+      ]
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/server.js"
+    }
+  ]
+}
