@@ -21,7 +21,7 @@
         <a href="./backdrops.html">Backdrops</a>
         <a href="./about.html">About</a>
       </nav>
-      <a class="nav-cta" href="https://wa.me/60172545133?text=Hi%20BlackBox%20Photobooth%2C%20I%27d%20like%20to%20make%20a%20booking.">Book photo booth</a>
+      <a class="nav-cta" href="https://wa.me/601119948934?text=Hi%20BlackBox%20Photobooth%2C%20I%27d%20like%20to%20make%20a%20booking.">Book photo booth</a>
       <details class="mobile-menu">
         <summary aria-label="Open navigation"><span></span><span></span><span></span></summary>
         <nav class="mobile-menu-panel" aria-label="Mobile navigation">
@@ -29,7 +29,7 @@
             <a href="./gallery.html">Gallery</a>
             <a href="./backdrops.html">Backdrops</a>
             <a href="./about.html">About</a>
-            <a href="https://wa.me/60172545133?text=Hi%20BlackBox%20Photobooth%2C%20I%27d%20like%20to%20make%20a%20booking." aria-current="page">Book now</a>
+            <a href="https://wa.me/601119948934?text=Hi%20BlackBox%20Photobooth%2C%20I%27d%20like%20to%20make%20a%20booking." aria-current="page">Book now</a>
         </nav>
       </details>
     </header>
@@ -43,15 +43,16 @@
         </div>
       </section>
       <section class="content-band booking-layout">
-        <div class="booking-intro"><p class="micro">Booking request</p><h2>Tell us about the event.</h2><p>No payment is taken here. This request simply helps us confirm the right booth, timing and backdrop.</p><div class="booking-contact"><span>Prefer WhatsApp?</span><a href="https://wa.me/60172545133">+60 17-254 5133</a></div></div>
+        <div class="booking-intro"><p class="micro">Booking request</p><h2>Tell us about the event.</h2><p>No payment is taken here. This request simply helps us confirm the right booth, timing and backdrop.</p><div class="booking-contact"><span>Prefer WhatsApp?</span><a href="https://wa.me/601119948934">+60 11-1994 8934</a></div></div>
         <form class="booking-form" id="booking-form">
           <label>Full name<input type="text" name="name" autocomplete="name" required /></label>
           <label>Email address<input type="email" name="email" autocomplete="email" required /></label>
           <div class="form-row"><label>Event date<input type="date" name="date" required /></label><label>Guest count<input type="number" name="guests" min="1" inputmode="numeric" /></label></div>
           <label>Event type<select name="event_type"><option>Wedding</option><option>Birthday or private party</option><option>Corporate event</option><option>Brand activation</option><option>Other</option></select></label>
-          <label>Package interest<select name="package"><option>Help me choose</option><option>Essential</option><option>Signature</option><option>Black Box+</option></select></label>
+          <label>Package interest<select name="package"><option>Help me choose</option><option>3 hours - RM650</option><option>4 hours - RM800</option></select></label>
           <label>Venue and notes<textarea name="details" rows="5" placeholder="Venue, city, timing or anything we should know"></textarea></label>
           <button class="button primary" type="submit">Continue on WhatsApp</button>
+          <p class="form-terms">By continuing, you acknowledge the <a href="./terms.html">BlackBox Photobooth Terms &amp; Conditions</a>.</p>
         </form>
       </section>
     </main>
@@ -62,7 +63,8 @@
         <a href="./gallery.html">Gallery</a>
         <a href="./backdrops.html">Backdrops</a>
         <a href="./about.html">About</a>
-        <a href="https://wa.me/60172545133?text=Hi%20BlackBox%20Photobooth%2C%20I%27d%20like%20to%20make%20a%20booking.">Booking</a>
+        <a href="./terms.html">Terms</a>
+        <a href="https://wa.me/601119948934?text=Hi%20BlackBox%20Photobooth%2C%20I%27d%20like%20to%20make%20a%20booking.">Booking</a>
       </nav>
       <p>Modern photo booth experiences for celebrations worth remembering.</p>
     </footer>
@@ -80,7 +82,7 @@
           `Package: ${data.get("package") || "-"}`,
           `Venue / notes: ${data.get("details") || "-"}`,
         ].join("\n");
-        window.location.href = `https://wa.me/60172545133?text=${encodeURIComponent(message)}`;
+        window.location.href = `https://wa.me/601119948934?text=${encodeURIComponent(message)}`;
       });
     </script>
   </body>

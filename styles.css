@@ -1175,3 +1175,144 @@ p {
     padding: 21px 0;
   }
 }
+
+/* TikTok gallery and official terms */
+.tiktok-section {
+  border-top: 1px solid var(--line);
+  background: #08090b;
+}
+
+.tiktok-grid {
+  display: grid;
+  gap: 12px;
+  margin-top: 36px;
+}
+
+.tiktok-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #111;
+}
+
+.tiktok-card iframe {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  display: block;
+  border: 0;
+  background: #080808;
+}
+
+.tiktok-card > a {
+  display: block;
+  padding: 15px 16px;
+  border-top: 1px solid var(--line);
+  font-size: .72rem;
+  font-weight: 900;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-transform: uppercase;
+}
+
+.tiktok-profile-link,
+.package-note a,
+.form-terms a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.tiktok-profile-link {
+  display: inline-block;
+  margin-top: 22px;
+  font-size: .78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.form-terms {
+  margin: -4px 0 0;
+  color: var(--muted);
+  font-size: .72rem;
+  line-height: 1.5;
+  text-transform: none;
+}
+
+.terms-masthead .page-masthead-media img {
+  object-position: center 58%;
+}
+
+.terms-layout {
+  display: grid;
+  gap: 36px;
+  border-bottom: 1px solid var(--line);
+}
+
+.terms-layout h2 {
+  max-width: 12ch;
+  font-size: 3rem;
+}
+
+.terms-layout > div:first-child > p:last-child {
+  max-width: 620px;
+}
+
+.terms-document {
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f4f2ed;
+  color: #090909;
+}
+
+.terms-document span {
+  font-size: .72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.terms-document strong {
+  max-width: 9ch;
+  margin-top: 8px;
+  font-family: "Bebas Neue", Impact, sans-serif;
+  font-size: 3.5rem;
+  line-height: .9;
+  text-transform: uppercase;
+}
+
+.terms-document p {
+  max-width: 440px;
+  color: #55524d;
+}
+
+.terms-document .button {
+  width: fit-content;
+  margin-top: 16px;
+  border-radius: 4px;
+  background: #090909;
+  color: #fff;
+  border-color: #090909;
+}
+
+.site-footer a[aria-current="page"] {
+  color: var(--white);
+}
+
+@media (min-width: 760px) {
+  .tiktok-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .terms-layout {
+    grid-template-columns: .85fr 1.15fr;
+    align-items: start;
+  }
+
+  .terms-document {
+    min-height: 520px;
+    padding: 40px;
+  }
+}
