@@ -43,7 +43,22 @@
     <main id="home">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-media" aria-hidden="true">
-          <img src="./assets/hero-event.webp" alt="" width="1792" height="896" fetchpriority="high" />
+          <video
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="./assets/hero-video-poster.webp"
+          >
+            <source src="./assets/hero-reveal.mp4" type="video/mp4" />
+          </video>
+        </div>
+
+        <div class="hero-curtain" aria-hidden="true">
+          <div class="curtain-panel curtain-panel-left"></div>
+          <div class="curtain-panel curtain-panel-right"></div>
+          <div class="curtain-valance"></div>
         </div>
 
         <div class="hero-copy">
