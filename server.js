@@ -8,6 +8,8 @@ const types = {
   ".html": "text/html; charset=utf-8",
   ".css": "text/css; charset=utf-8",
   ".js": "text/javascript; charset=utf-8",
+  ".jpeg": "image/jpeg",
+  ".jpg": "image/jpeg",
   ".mp4": "video/mp4",
   ".webp": "image/webp",
 };
@@ -23,17 +25,58 @@ function serve(req, res) {
     return;
   }
 
-  fs.readFile(file, (error, data) => {
-    if (error) {
+  fs.stat(file, (error, stats) => {
+    if (error || !stats.isFile()) {
       res.writeHead(404);
       res.end("Not found");
       return;
     }
 
-    res.writeHead(200, {
-      "Content-Type": types[path.extname(file)] || "application/octet-stream",
-    });
-    res.end(data);
+    const type = types[path.extname(file).toLowerCase()] || "application/octet-stream";
+    const headers = {
+      "Accept-Ranges": "bytes",
+      "Content-Type": type,
+    };
+    const range = req.headers.range;
+
+    if (range) {
+      const match = /^bytes=(\d*)-(\d*)$/.exec(range);
+      if (!match) {
+        res.writeHead(416, { "Content-Range": `bytes */${stats.size}` });
+        res.end();
+        return;
+      }
+
+      let start;
+      let end;
+      if (!match[1]) {
+        const suffixLength = Number(match[2]);
+        start = Math.max(stats.size - suffixLength, 0);
+        end = stats.size - 1;
+      } else {
+        start = Number(match[1]);
+        end = match[2] ? Number(match[2]) : stats.size - 1;
+        end = Math.min(end, stats.size - 1);
+      }
+
+      if (start > end || start >= stats.size) {
+        res.writeHead(416, { "Content-Range": `bytes */${stats.size}` });
+        res.end();
+        return;
+      }
+
+      headers["Content-Length"] = end - start + 1;
+      headers["Content-Range"] = `bytes ${start}-${end}/${stats.size}`;
+      res.writeHead(206, headers);
+      if (req.method === "HEAD") res.end();
+      else fs.createReadStream(file, { start, end }).pipe(res);
+      return;
+    }
+
+    headers["Content-Length"] = stats.size;
+    res.writeHead(200, headers);
+    if (req.method === "HEAD") res.end();
+    else fs.createReadStream(file).pipe(res);
   });
 }
 

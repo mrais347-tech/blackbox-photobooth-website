@@ -1071,3 +1071,64 @@ p {
   .hero-copy { opacity: 1; transform: none; animation: none; }
   .hero-media video { transform: none; }
 }
+/* Package inclusions and supplied photography */
+.page-about .page-masthead-media img {
+  object-position: 68% center;
+}
+
+.story-signoff {
+  margin-top: 34px;
+  color: var(--white);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.35rem !important;
+  font-weight: 700;
+}
+
+.package-inclusions {
+  display: grid;
+  gap: 36px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: #070708;
+}
+
+.equipment-specs {
+  margin: 0;
+  border-top: 1px solid var(--line);
+}
+
+.equipment-specs div {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 18px;
+  align-items: baseline;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.equipment-specs dt {
+  color: var(--gold);
+  font-size: .7rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.equipment-specs dd {
+  min-width: 0;
+  margin: 0;
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+@media (min-width: 760px) {
+  .package-inclusions {
+    grid-template-columns: .75fr 1.25fr;
+    align-items: start;
+  }
+
+  .equipment-specs div {
+    grid-template-columns: 130px minmax(0, 1fr);
+    padding: 21px 0;
+  }
+}
