@@ -7,7 +7,7 @@
     <title>Booking | Black Box Photobooth</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body class="inner-page page-booking">
@@ -21,7 +21,7 @@
         <a href="./backdrops.html">Backdrops</a>
         <a href="./about.html">About</a>
       </nav>
-      <a class="nav-cta" href="./booking.html">Book photo booth</a>
+      <a class="nav-cta" href="https://wa.me/60172545133?text=Hi%20BlackBox%20Photobooth%2C%20I%27d%20like%20to%20make%20a%20booking.">Book photo booth</a>
       <details class="mobile-menu">
         <summary aria-label="Open navigation"><span></span><span></span><span></span></summary>
         <nav class="mobile-menu-panel" aria-label="Mobile navigation">
@@ -29,7 +29,7 @@
             <a href="./gallery.html">Gallery</a>
             <a href="./backdrops.html">Backdrops</a>
             <a href="./about.html">About</a>
-            <a href="./booking.html" aria-current="page">Book now</a>
+            <a href="https://wa.me/60172545133?text=Hi%20BlackBox%20Photobooth%2C%20I%27d%20like%20to%20make%20a%20booking." aria-current="page">Book now</a>
         </nav>
       </details>
     </header>
@@ -43,15 +43,15 @@
         </div>
       </section>
       <section class="content-band booking-layout">
-        <div class="booking-intro"><p class="micro">Booking request</p><h2>Tell us about the event.</h2><p>No payment is taken here. This request simply helps us confirm the right booth, timing and backdrop.</p><div class="booking-contact"><span>Prefer email?</span><a href="mailto:hello@blkboxbooth.com">hello@blkboxbooth.com</a></div></div>
-        <form class="booking-form" action="mailto:hello@blkboxbooth.com" method="post" enctype="text/plain">
+        <div class="booking-intro"><p class="micro">Booking request</p><h2>Tell us about the event.</h2><p>No payment is taken here. This request simply helps us confirm the right booth, timing and backdrop.</p><div class="booking-contact"><span>Prefer WhatsApp?</span><a href="https://wa.me/60172545133">+60 17-254 5133</a></div></div>
+        <form class="booking-form" id="booking-form">
           <label>Full name<input type="text" name="name" autocomplete="name" required /></label>
           <label>Email address<input type="email" name="email" autocomplete="email" required /></label>
           <div class="form-row"><label>Event date<input type="date" name="date" required /></label><label>Guest count<input type="number" name="guests" min="1" inputmode="numeric" /></label></div>
           <label>Event type<select name="event_type"><option>Wedding</option><option>Birthday or private party</option><option>Corporate event</option><option>Brand activation</option><option>Other</option></select></label>
           <label>Package interest<select name="package"><option>Help me choose</option><option>Essential</option><option>Signature</option><option>Black Box+</option></select></label>
           <label>Venue and notes<textarea name="details" rows="5" placeholder="Venue, city, timing or anything we should know"></textarea></label>
-          <button class="button primary" type="submit">Send booking request</button>
+          <button class="button primary" type="submit">Continue on WhatsApp</button>
         </form>
       </section>
     </main>
@@ -62,9 +62,26 @@
         <a href="./gallery.html">Gallery</a>
         <a href="./backdrops.html">Backdrops</a>
         <a href="./about.html">About</a>
-        <a href="./booking.html">Booking</a>
+        <a href="https://wa.me/60172545133?text=Hi%20BlackBox%20Photobooth%2C%20I%27d%20like%20to%20make%20a%20booking.">Booking</a>
       </nav>
       <p>Modern photo booth experiences for celebrations worth remembering.</p>
     </footer>
+    <script>
+      document.getElementById("booking-form")?.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const data = new FormData(event.currentTarget);
+        const message = [
+          "Hi BlackBox Photobooth, I'd like to make a booking.",
+          `Name: ${data.get("name") || "-"}`,
+          `Email: ${data.get("email") || "-"}`,
+          `Event date: ${data.get("date") || "-"}`,
+          `Guest count: ${data.get("guests") || "-"}`,
+          `Event type: ${data.get("event_type") || "-"}`,
+          `Package: ${data.get("package") || "-"}`,
+          `Venue / notes: ${data.get("details") || "-"}`,
+        ].join("\n");
+        window.location.href = `https://wa.me/60172545133?text=${encodeURIComponent(message)}`;
+      });
+    </script>
   </body>
 </html>

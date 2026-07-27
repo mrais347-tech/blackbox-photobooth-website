@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700;900&family=Playfair+Display:wght@700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700;900&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
@@ -27,7 +27,7 @@
         <a href="./backdrops.html">Backdrops</a>
         <a href="./about.html">About</a>
       </nav>
-      <a class="nav-cta" href="./booking.html">Book photo booth</a>
+      <a class="nav-cta" href="https://wa.me/60172545133?text=Hi%20BlackBox%20Photobooth%2C%20I%27d%20like%20to%20make%20a%20booking.">Book photo booth</a>
       <details class="mobile-menu">
         <summary aria-label="Open navigation"><span></span><span></span><span></span></summary>
         <nav class="mobile-menu-panel" aria-label="Mobile navigation">
@@ -35,7 +35,7 @@
             <a href="./gallery.html">Gallery</a>
             <a href="./backdrops.html">Backdrops</a>
             <a href="./about.html">About</a>
-            <a href="./booking.html">Book now</a>
+            <a href="https://wa.me/60172545133?text=Hi%20BlackBox%20Photobooth%2C%20I%27d%20like%20to%20make%20a%20booking.">Book now</a>
         </nav>
       </details>
     </header>
@@ -44,15 +44,16 @@
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-media" aria-hidden="true">
           <video
+            id="hero-video"
+            src="./assets/hero-reveal.mp4"
             autoplay
             muted
             loop
             playsinline
+            webkit-playsinline
             preload="auto"
             poster="./assets/hero-video-poster.webp"
-          >
-            <source src="./assets/hero-reveal.mp4" type="video/mp4" />
-          </video>
+          ></video>
         </div>
 
         <div class="hero-curtain" aria-hidden="true">
@@ -66,7 +67,7 @@
           <h1 id="hero-title">Good Times, <span>Printed Instantly.</span></h1>
           <p class="intro">A modern photo booth experience for celebrations worth remembering.</p>
           <div class="hero-actions">
-            <a class="button primary" href="./booking.html">Check Your Date</a>
+            <a class="button primary" href="https://wa.me/60172545133?text=Hi%20BlackBox%20Photobooth%2C%20I%27d%20like%20to%20make%20a%20booking.">Check Your Date</a>
             <a class="button secondary" href="./packages.html">View Packages</a>
           </div>
           <ul class="hero-proof" aria-label="Included with every booking">
@@ -176,7 +177,7 @@
           Send the date, venue, event type, and guest count. BLK Box Booth will
           shape the right setup for the night.
         </p>
-        <a class="button primary" href="./booking.html">Book photo booth</a>
+        <a class="button primary" href="https://wa.me/60172545133?text=Hi%20BlackBox%20Photobooth%2C%20I%27d%20like%20to%20make%20a%20booking.">Book photo booth</a>
       </section>
     </main>
     <footer class="site-footer">
@@ -186,9 +187,33 @@
         <a href="./gallery.html">Gallery</a>
         <a href="./backdrops.html">Backdrops</a>
         <a href="./about.html">About</a>
-        <a href="./booking.html">Booking</a>
+        <a href="https://wa.me/60172545133?text=Hi%20BlackBox%20Photobooth%2C%20I%27d%20like%20to%20make%20a%20booking.">Booking</a>
       </nav>
       <p>Modern photo booth experiences for celebrations worth remembering.</p>
     </footer>
+    <script>
+      (() => {
+        const video = document.getElementById("hero-video");
+        if (!video) return;
+
+        const playVideo = () => {
+          video.muted = true;
+          video.defaultMuted = true;
+          video.playsInline = true;
+          const playback = video.play();
+          if (playback) playback.catch(() => {});
+        };
+
+        if (video.readyState >= 2) playVideo();
+        else video.addEventListener("canplay", playVideo, { once: true });
+
+        window.addEventListener("pageshow", playVideo);
+        document.addEventListener("visibilitychange", () => {
+          if (!document.hidden) playVideo();
+        });
+        window.addEventListener("touchstart", playVideo, { once: true, passive: true });
+        window.addEventListener("pointerdown", playVideo, { once: true, passive: true });
+      })();
+    </script>
   </body>
 </html>
