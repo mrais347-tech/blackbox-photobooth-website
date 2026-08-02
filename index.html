@@ -108,9 +108,21 @@
             <span>100 photo holders</span>
           </div>
         </div>
-      </section>      <section class="split-section equipment-showcase" id="use">
+      </section>
+      <section class="split-section equipment-showcase" id="use">
         <div class="equipment-visual">
-          <img src="./assets/about-booth.webp" alt="Black Box Photobooth equipment set up beside a red fabric backdrop" loading="lazy" />
+          <video
+            id="setup-video"
+            src="./assets/main-setup.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+            webkit-playsinline
+            preload="metadata"
+            poster="./assets/main-setup-poster.webp"
+            aria-label="Black Box Photobooth setup in action"
+          ></video>
         </div>
         <div class="equipment-copy">
           <p class="section-kicker">The setup</p>
@@ -123,45 +135,19 @@
           </ul>
         </div>
       </section>
-      <section class="statement">
-        <p>&ldquo;Capture the Moment. Keep the Memory.&rdquo;</p>
-      </section>
-      <section class="features" id="features">
-        <div class="section-heading">
-          <p class="micro">Everything your event needs</p>
-          <h2>From the first pose to the print in your hand.</h2>
-        </div>
-        <div class="feature-grid">
-          <article><span>01</span><h3>Custom Templates</h3><p>A photo strip design made to match your celebration.</p></article>
-          <article><span>02</span><h3>Instant Prints</h3><p>Unlimited high-quality 2R strips during your coverage.</p></article>
-          <article><span>03</span><h3>QR Sharing</h3><p>Guests can download their softcopy straight to their phone.</p></article>
-          <article><span>04</span><h3>Friendly Team</h3><p>Two professional assistants keep every session running smoothly.</p></article>
-        </div>
-      </section>
-      <section class="specs">
-        <div><p class="micro">Professional equipment</p><h2>Quality you can see in every print.</h2></div>
-        <div class="spec-list">
-          <div><span>Camera</span><strong>Canon EOS R50</strong></div>
-          <div><span>Printer</span><strong>DNP RX1HS</strong></div>
-          <div><span>Prints</span><strong>Unlimited 2R photo strips</strong></div>
-          <div><span>Sharing</span><strong>Instant softcopy via QR</strong></div>
-        </div>
-      </section>
-      <section class="gallery" id="gallery" aria-label="Black Box Photobooth gallery">
-        <div class="gallery-card tall"><img src="./assets/packages-event.webp" alt="Friends and family posing together at a wedding photobooth" loading="lazy" /><span>Wedding Celebrations</span></div>
-        <div class="gallery-card"><img src="./assets/booth-front.webp" alt="Black Box Photobooth equipment facing a red backdrop" loading="lazy" /><span>The Booth</span></div>
-        <div class="gallery-card"><img src="./assets/portrait-red.webp" alt="Guest portrait against a red backdrop" loading="lazy" /><span>Red Backdrop Portraits</span></div>
-        <div class="gallery-card wide"><img src="./assets/portrait-pink.webp" alt="Guest portrait against a soft pink backdrop" loading="lazy" /><span>Studio Portraits</span></div>
-      </section>
 
-      <section class="booking" id="book">
-        <p class="micro">Contact</p>
-        <h2>Make the booth the thing everyone remembers.</h2>
-        <p>
-          Send the date, venue, event type, and guest count. BLK Box Booth will
-          shape the right setup for the night.
-        </p>
-        <a class="button primary" href="https://wa.me/601119948934?text=Hi%20BlackBox%20Photobooth%2C%20I%27d%20like%20to%20make%20a%20booking.">Book photo booth</a>
+      <section class="home-explore" aria-label="Explore BlackBox Photobooth">
+        <details class="explore-menu">
+          <summary><span>Explore more</span><span class="explore-symbol" aria-hidden="true"></span></summary>
+          <nav aria-label="More pages">
+            <a href="./packages.html"><span>Packages</span><small>01</small></a>
+            <a href="./gallery.html"><span>Gallery</span><small>02</small></a>
+            <a href="./backdrops.html"><span>Backdrops</span><small>03</small></a>
+            <a href="./about.html"><span>About</span><small>04</small></a>
+            <a href="./terms.html"><span>Terms &amp; Conditions</span><small>05</small></a>
+            <a href="./booking.html"><span>Booking request</span><small>06</small></a>
+          </nav>
+        </details>
       </section>
     </main>
     <footer class="site-footer">
@@ -183,26 +169,29 @@
     </footer>
     <script>
       (() => {
-        const video = document.getElementById("hero-video");
-        if (!video) return;
+        const videos = [...document.querySelectorAll("video[autoplay]")];
+        if (!videos.length) return;
 
-        const playVideo = () => {
+        const playVideo = (video) => {
           video.muted = true;
           video.defaultMuted = true;
           video.playsInline = true;
           const playback = video.play();
           if (playback) playback.catch(() => {});
         };
+        const playAll = () => videos.forEach(playVideo);
 
-        if (video.readyState >= 2) playVideo();
-        else video.addEventListener("canplay", playVideo, { once: true });
-
-        window.addEventListener("pageshow", playVideo);
-        document.addEventListener("visibilitychange", () => {
-          if (!document.hidden) playVideo();
+        videos.forEach((video) => {
+          if (video.readyState >= 2) playVideo(video);
+          else video.addEventListener("canplay", () => playVideo(video), { once: true });
         });
-        window.addEventListener("touchstart", playVideo, { once: true, passive: true });
-        window.addEventListener("pointerdown", playVideo, { once: true, passive: true });
+
+        window.addEventListener("pageshow", playAll);
+        document.addEventListener("visibilitychange", () => {
+          if (!document.hidden) playAll();
+        });
+        window.addEventListener("touchstart", playAll, { once: true, passive: true });
+        window.addEventListener("pointerdown", playAll, { once: true, passive: true });
       })();
     </script>
   </body>
