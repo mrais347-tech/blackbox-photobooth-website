@@ -299,21 +299,46 @@ p {
 }
 
 .ticker {
-  display: flex;
-  gap: 18px;
   overflow: hidden;
-  padding: 16px 18px;
+  padding-block: 16px;
   border-block: 1px solid var(--line);
   background: #08090b;
   white-space: nowrap;
 }
 
-.ticker span {
+.ticker-track {
+  width: max-content;
+  display: flex;
+  animation: ticker-loop 26s linear infinite;
+  will-change: transform;
+}
+
+.ticker:hover .ticker-track {
+  animation-play-state: paused;
+}
+
+.ticker-group {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding-right: 28px;
+}
+
+.ticker-group span {
   font-family: "Bebas Neue", Impact, sans-serif;
   font-size: clamp(1.8rem, 9vw, 4rem);
   line-height: 1;
 }
 
+.ticker-group span::after {
+  content: "/";
+  margin-left: 28px;
+  color: var(--gold);
+}
+
+@keyframes ticker-loop {
+  to { transform: translateX(-50%); }
+}
 .split-section,
 .features,
 .specs,
@@ -546,9 +571,6 @@ p {
     display: inline-flex;
   }
 
-  .ticker {
-    padding-inline: 40px;
-  }
 
   .split-section,
   .features,
@@ -1146,6 +1168,9 @@ p {
   .hero-curtain { display: none; }
   .hero-copy { opacity: 1; transform: none; animation: none; }
   .hero-media video { transform: none; }
+  .ticker { overflow-x: auto; }
+  .ticker-track { animation: none; }
+  .ticker-group[aria-hidden="true"] { display: none; }
 }
 /* Package inclusions and supplied photography */
 .page-about .page-masthead-media img {
