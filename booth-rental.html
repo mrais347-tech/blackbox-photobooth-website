@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="BLK Box Booth creates dark, premium photo booth experiences for events, weddings, parties, and brand activations."
+    />
+    <title>Booth Rental | Blackbox</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="./index.html" aria-label="Black Box Photobooth home">
+        <img src="./assets/blackbox-logo.webp" alt="Black Box Photobooth" width="546" height="558" />
+      </a>
+      <nav class="nav" aria-label="Primary navigation"><a href="./index.html">Photostrips</a>
+        <a href="./packages.html">Packages</a>
+        <a href="./gallery.html">Gallery</a>
+        <a href="./backdrops.html">Backdrops</a>
+        <a href="./about.html">About</a>
+      </nav>
+      <div class="header-socials" aria-label="BlackBox social media">
+        <a class="social-icon" href="https://www.instagram.com/blkboxbooth/" target="_blank" rel="noopener noreferrer" aria-label="BlackBox Photobooth on Instagram" title="Instagram"><img src="./assets/instagram.svg" alt="" /></a>
+        <a class="social-icon" href="https://www.tiktok.com/@blackboxbooth?lang=en" target="_blank" rel="noopener noreferrer" aria-label="BlackBox Photobooth on TikTok" title="TikTok"><img src="./assets/tiktok.svg" alt="" /></a>
+      </div>
+      <a class="nav-cta" href="https://wa.me/601119948934?text=Hi%20BlackBox%20Photobooth%2C%20I%27d%20like%20to%20make%20a%20booking.">Book photo booth</a>
+      <details class="mobile-menu">
+        <summary aria-label="Open navigation"><span></span><span></span><span></span></summary>
+        <nav class="mobile-menu-panel" aria-label="Mobile navigation">
+            <a href="./packages.html">Packages</a>
+            <a href="./gallery.html">Gallery</a>
+            <a href="./backdrops.html">Backdrops</a>
+            <a href="./about.html">About</a>
+            <a class="mobile-social-link" href="https://www.instagram.com/blkboxbooth/" target="_blank" rel="noopener noreferrer"><img src="./assets/instagram.svg" alt="" />Instagram</a>
+            <a class="mobile-social-link" href="https://www.tiktok.com/@blackboxbooth?lang=en" target="_blank" rel="noopener noreferrer"><img src="./assets/tiktok.svg" alt="" />TikTok</a>
+            <a href="https://wa.me/601119948934?text=Hi%20BlackBox%20Photobooth%2C%20I%27d%20like%20to%20make%20a%20booking.">Book now</a>
+        </nav>
+      </details>
+    </header>
+
+    <main id="home">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-media" aria-hidden="true">
+          <video
+            id="hero-video"
+            src="./assets/hero-reveal.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+            webkit-playsinline
+            preload="auto"
+            poster="./assets/hero-video-poster.webp"
+          ></video>
+        </div>
+
+        <div class="hero-curtain" aria-hidden="true">
+          <div class="curtain-panel curtain-panel-left"></div>
+          <div class="curtain-panel curtain-panel-right"></div>
+          <div class="curtain-valance"></div>
+        </div>
+
+        <div class="hero-copy">
+          <p class="hero-kicker">Modern photobooth hire</p>
+          <h1 id="hero-title">Good Times, <span>Printed Instantly.</span></h1>
+          <p class="intro">A modern photo booth experience for celebrations worth remembering.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="https://wa.me/601119948934?text=Hi%20BlackBox%20Photobooth%2C%20I%27d%20like%20to%20make%20a%20booking.">Check Your Date</a>
+            <a class="button secondary" href="./packages.html">View Packages</a>
+          </div>
+          <ul class="hero-proof" aria-label="Included with every booking">
+            <li>Instant prints</li>
+            <li>Custom designs</li>
+            <li>On-site attendant</li>
+          </ul>
+        </div>
+
+        <a class="scroll-cue" href="#use" aria-label="Scroll to use cases">
+          <span aria-hidden="true"></span>
+          Discover
+        </a>
+      </section>
+
+      <section class="ticker" aria-label="Highlights">
+        <div class="ticker-track">
+          <div class="ticker-group">
+            <span>unlimited 2R strips</span>
+            <span>custom templates</span>
+            <span>fabric backdrop</span>
+            <span>QR sharing</span>
+            <span>two assistants</span>
+            <span>100 photo holders</span>
+          </div>
+          <div class="ticker-group" aria-hidden="true">
+            <span>unlimited 2R strips</span>
+            <span>custom templates</span>
+            <span>fabric backdrop</span>
+            <span>QR sharing</span>
+            <span>two assistants</span>
+            <span>100 photo holders</span>
+          </div>
+        </div>
+      </section>
+      <section class="split-section equipment-showcase" id="use">
+        <div class="equipment-visual">
+          <video
+            id="setup-video"
+            src="./assets/main-setup.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+            webkit-playsinline
+            preload="metadata"
+            poster="./assets/main-setup-poster.webp"
+            aria-label="Black Box Photobooth setup in action"
+          ></video>
+        </div>
+        <div class="equipment-copy">
+          <p class="section-kicker">The setup</p>
+          <h2>A complete booth, ready before your first guest arrives.</h2>
+          <p>Our team brings the camera, professional printer, fabric tension backdrop and everything needed to keep the celebration moving.</p>
+          <ul class="proof-list">
+            <li>Canon EOS R50 camera for crisp, flattering portraits.</li>
+            <li>DNP RX1HS printer for high-quality instant photo strips.</li>
+            <li>Two photobooth assistants throughout your booking.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="home-explore" aria-label="Explore BlackBox Photobooth">
+        <details class="explore-menu">
+          <summary><span>Explore more</span><span class="explore-symbol" aria-hidden="true"></span></summary>
+          <nav aria-label="More pages">
+            <a href="./packages.html"><span>Packages</span><small>01</small></a>
+            <a href="./gallery.html"><span>Gallery</span><small>02</small></a>
+            <a href="./backdrops.html"><span>Backdrops</span><small>03</small></a>
+            <a href="./about.html"><span>About</span><small>04</small></a>
+            <a href="./terms.html"><span>Terms &amp; Conditions</span><small>05</small></a>
+            <a href="./booking.html"><span>Booking request</span><small>06</small></a>
+          </nav>
+        </details>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <a class="footer-brand" href="./index.html">Black Box <span>Photobooth</span></a>
+      <nav aria-label="Footer navigation">
+        <a href="./packages.html">Packages</a>
+        <a href="./gallery.html">Gallery</a>
+        <a href="./backdrops.html">Backdrops</a>
+        <a href="./about.html">About</a>
+        <a href="https://www.instagram.com/blkboxbooth/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.tiktok.com/@blackboxbooth?lang=en" target="_blank" rel="noopener noreferrer">TikTok</a>
+        <a href="./terms.html">Terms</a>
+        <a href="https://wa.me/601119948934?text=Hi%20BlackBox%20Photobooth%2C%20I%27d%20like%20to%20make%20a%20booking.">Booking</a>
+      </nav>
+      <div class="footer-meta">
+        <p>Modern photo booth experiences for celebrations worth remembering.</p>
+        <small class="site-credit">made by <span>itSRais.</span></small>
+      </div>
+    </footer>
+    <script>
+      (() => {
+        const videos = [...document.querySelectorAll("video[autoplay]")];
+        if (!videos.length) return;
+
+        const playVideo = (video) => {
+          video.muted = true;
+          video.defaultMuted = true;
+          video.playsInline = true;
+          const playback = video.play();
+          if (playback) playback.catch(() => {});
+        };
+        const playAll = () => videos.forEach(playVideo);
+
+        videos.forEach((video) => {
+          if (video.readyState >= 2) playVideo(video);
+          else video.addEventListener("canplay", () => playVideo(video), { once: true });
+        });
+
+        window.addEventListener("pageshow", playAll);
+        document.addEventListener("visibilitychange", () => {
+          if (!document.hidden) playAll();
+        });
+        window.addEventListener("touchstart", playAll, { once: true, passive: true });
+        window.addEventListener("pointerdown", playAll, { once: true, passive: true });
+      })();
+    </script>
+  </body>
+</html>
