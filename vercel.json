@@ -1,1 +1,34 @@
-{"version":2,"builds":[{"src":"*.html","use":"@vercel/static"},{"src":"*.css","use":"@vercel/static"},{"src":"photostrips.js","use":"@vercel/static"},{"src":"assets/**","use":"@vercel/static"}],"routes":[{"src":"/","dest":"/index.html"},{"handle":"filesystem"}]}
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "*.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "*.css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "photostrips.js",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "admin.js",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "assets/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/index.html"
+    },
+    {
+      "handle": "filesystem"
+    }
+  ]
+}
