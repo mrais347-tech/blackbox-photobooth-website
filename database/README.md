@@ -30,3 +30,13 @@ Customer test-upload API verified with synthetic photos: all four private files 
 Applied migration: private_test_upload_sessions, source in test-orders.sql. Edge source in supabase/functions/test-orders/index.ts; deploy as test-orders with verify_jwt=false because session authentication is implemented in the function. No service key is included in browser code. Browser users explicitly consent before uploading. Drafts expire after two hours. Signed upload tokens also expire after two hours. Files are immutable via the signed slots; no overwrite token is issued. JPEG originals are converted client-side at up to 4000px, removing original metadata; the preview is 600x1800 PNG and explicitly not print-ready.
 
 A synthetic test order is retained for studio inspection. Preview sessions/files are not auto-deleted. The lifetime cap reserves a maximum of 290 MiB of upload slots. Do not delete session rows just to reset the limit without first removing their files through Storage API. No live payment or email/WhatsApp notification is sent by this flow.
+
+## Order desk workflow
+
+Migration staff_order_workflow_notes_history adds ready_to_ship, courier, updated_at and a monotonically increasing version. Staff PATCH requests include the version to prevent stale overwrites. Live unpaid orders cannot enter printing/ready_to_ship/shipped. Shipped requires nonblank courier and tracking. Test orders are still unpaid and do not bypass the payment gate.
+
+order_notes is append-only for approved staff; created_by and created_at cannot be supplied through client INSERT grants. order_history is written by a private, non-publicly executable trigger function; staff have SELECT only. Status/tracking/courier/payment changes are captured from this migration onward. No old activity is fabricated.
+
+The desk provides loaded-order queue counts, search, date/type filters, pagination in batches of 100, native modal details, private previews/originals, workflow buttons, append-only notes and latest 50 history entries. Counts deliberately describe loaded records rather than all-time totals. Notes and status changes do not send messages or issue refunds.
+
+Verified transaction tests (rolled back): staff paid-order workflow, missing shipment details rejected, audit entries and version increment, notes creation, forged history denied, non-admin notes/history denied. Client harness: queues/search/details/action updates/note saves/shipment checks. Staff credentials were not accessed for browser testing. Supabase advisor separately reports leaked-password protection disabled in Auth (existing account setting).
