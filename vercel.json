@@ -18,6 +18,10 @@
       "use": "@vercel/static"
     },
     {
+      "src": "activate.js",
+      "use": "@vercel/static"
+    },
+    {
       "src": "assets/**",
       "use": "@vercel/static"
     }
